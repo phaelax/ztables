@@ -1,0 +1,100 @@
+
+table.ztable{}
+
+table.ztable thead tr th{cursor:pointer;} /* row headers */
+table.ztable thead tr th span{float:right;} /* column sorter */
+table.ztable thead tr th span.order-select{color:red}  /* column sorter active */
+table.ztable + div.ztable_status{overflow:auto;padding:9px;display:flex; align-items:center;justify-content:space-between;} /* status container, holds status info and .paginate */
+table.ztable + div.ztable_status span{color:black} /* status info */
+
+table.ztable + div.ztable_status > div.paginate{float:right;}  /* Panel that contains pagination controls */
+table.ztable + div.ztable_status > div.paginate > button{box-sizing:border-box;border:none;min-width:32px;height:32px;background:none;}
+table.ztable + div.ztable_status > div.paginate > button:focus{outline:none;}
+table.ztable + div.ztable_status > div.paginate > button.btn-active{ /* Pagination button of current active page */
+	border:1px solid #ccc;
+	border-radius:3px;
+	background: linear-gradient(to top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+}
+/* pagination buttons on mouse hover */
+table.ztable + div.ztable_status > div.paginate > button:not(.btn-active):not([disabled]):hover{ 
+	border:1px solid #666;
+	border-radius:3px;
+	color:white;
+	background:linear-gradient(to bottom, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+
+}
+
+
+.pageSizeSelector{color:black;}  /* page size label */
+.pageSizeSelector + select{}     /* page size control */
+
+
+
+table.ztable tbody tr td{border:0;} /* table cells */
+
+/* Column being dragged */
+table.ztable thead tr th{white-space: nowrap}
+table.ztable thead tr th.reorderMarker, table.ztable tbody tr td.reorderMarker{border-left:2px solid #159eed;backdrop-filter:opacity(90%) blur(1px);} 
+
+
+.zpanel{display:flex;align-items:center;justify-content:flex-start;padding:10px;}
+.zpanel button{font-size:0.9em;}
+.zpanel > *{padding:0 6px;}
+.zpanel > div{display:inline-block;}
+.zpanel > input[type="text"]{float:right;} /* Filter input field */
+.zpanel > div > select {} /* page size selector */
+
+
+
+
+/* dropdown menu wrapper */
+.zt_menu {position: relative;display: inline-block;}
+
+/* dropdown menu content */
+.zt_menu > .zt_menu_content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  border:1px solid #aaa;
+  min-width: 160px;
+  box-shadow: 0px 8px 12px 0px rgba(0,0,0,0.4);
+  z-index: 1;
+  padding:3px;
+}
+
+
+/* hide the checkbox (we'll use the label for display) */
+.zt_menu_content > input[type=checkbox] {position:absolute;visibility:hidden;opacity:0;}
+
+/* checkbox when unchecked */
+.zt_menu_content > input[type=checkbox] + label{
+	-moz-box-shadow:inset 0px 1px 0px 0px #030303;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #030303;
+	box-shadow:inset 0px 1px 0px 0px #030303;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	border-radius:4px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	height:30px;
+	line-height:30px;
+	width:100%;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+	padding-left:6px;
+	cursor:pointer;
+}
+
+/* checkbox when checked */
+.zt_menu_content > input[type=checkbox]:checked + label {
+  	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #019ad2 5%, #337ab7 100%);
+	background-color:#337ab7;
+	display:inline-block;
+	color:#FFF;
+	text-shadow:none;
+	font-weight:bold;
+}
