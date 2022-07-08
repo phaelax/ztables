@@ -12,7 +12,6 @@ var table = $('#mytable').ZTable({
 		pagination: true,
 		wrap: false,
 		pageSize: 25,
-		//render: {id:renderId, active:renderActive, gender:renderGender, test:renderRandom, rating:renderRating},
 		controls:{
 			paginate: true,
 			status: true,
